@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Annie's Code</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .headings {
+            color: white;
+        }
+        .blogContainer {
+            padding: 20px;
+            margin-left: 50px;
+            padding-bottom: 100px;
+        }
+        .prerequisites {
+            background-color: white;
+            border: solid #d66393 2px;
+            padding: 10px;
+            border-radius: 10px;
+            color: #d66393;
+        }
+
+        .terminalBlock {
+            background-color: #1f1f1f;
+            color: green;
+            border-radius: 5px;
+            text-align: left;
+            padding: 5px;
+            user-select: all;
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        .codeBlock {
+            background-color: lightgrey;
+            color: black;
+            border-radius: 5px;
+            text-align: left;
+            padding: 5px;
+            user-select: all;
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        .menuText {
+            background-color: lightgrey;
+        }
+
+        .footer {
+            padding: 40px;
+            background-color: pink;
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body class="bg-light">
+<nav class="navbar" style="background-color: #d66393">
+    <div class="container-fluid justify-content-center">
+        <a class="navbar-brand" href="https://charcalope.github.io"><span class="headings">Annie's Code</span></a>
+    </div>
+</nav>
+<div style="padding-top: 70px;">
+
+    <div class="blogContainer">
+        <div>
+            <h2>How to Turn Affinity Artboards into a GIF</h2>
+            <p>August 4 2024</p>
+            <hr class="border border-danger border-2 opacity-50">
+            <hr class="border border-warning border-2 opacity-50">
+            <hr class="border border-success border-2 opacity-50">
+            <hr class="border border-primary border-2 opacity-50">
+        </div>
+        <div class="prerequisites">
+            <p>Notes: Mac Specific, Terminal, Homebrew, Affinity Designer, File Conversion</p>
+        </div>
+        <div style="padding-top: 25px">
+            <p><b>If you want to turn your affinity artboards into a GIF, here is how I did it.</b></p>
+            <p>Open the <span class="menuText">Export Persona</span> tab in Affinity. Your boards are called "slices" here. On the righthand panel,
+                below your list of slices, near that little delete icon, is the <kbd>Export Slices</kbd> button. Export your slices into a new folder.</p>
+            <p>Now, open the terminal. I use Mac. Install imagemagick with homebrew.</p>
+            <div class="terminalBlock">
+                <pre><code>brew install imagemagick</code></pre>
+            </div>
+            <p>Once that's done, right-click on your folder, go down to <span class="menuText">Services</span> then click <span class="menuText">Open Terminal at Folder</span>.</p>
+            <p>A terminal will pop, up. Here's  the command to make a gif, using all the images in the folder.
+
+
+            <div class="terminalBlock">
+            <p style="color: white">JPEG files in directory</p><hr>
+                <pre><code>magick -delay 160 -loop 0 $(find . -name "*.jpg" | sort) title.gif</code></pre>
+            </div>
+
+
+            <div class="terminalBlock">
+                <p style="color: white">PNG files in directory</p><hr>
+                <pre><code>magick -delay 160 -loop 0 $(find . -name "*.png" | sort) title.gif</code></pre>
+            </div>
+
+            <p>Now there should be a new file <i>title.gif</i> in the folder with all your images.</p>
+
+
+        </div>
+
+    </div>
+</div>
+<div class="footer">
+    <p><b>Annie's Code</b></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
